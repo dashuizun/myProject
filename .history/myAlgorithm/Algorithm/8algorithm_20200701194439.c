@@ -9,7 +9,7 @@ void shellSort(int a[],int n);          //希尔排序
 void HeapSort(int *arr,int len);        //堆排序
 void Adjust(int *arr,int start,int end);    //堆排序
 void cs(int *arr, int len);
-int main ()
+int man ()
 {
     int drr[]={1,5,9,2,4,6,3,8,7,10};
     int num = sizeof(drr) / sizeof(drr[0]);
