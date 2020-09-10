@@ -133,9 +133,6 @@ btn.addEventListener('click', (e) => {
     
 });
 */
-
-// -------------------------------------
-
 // 获取数据
 const myFormm = document.querySelector('#myform');
 const namee = document.querySelector('#name');

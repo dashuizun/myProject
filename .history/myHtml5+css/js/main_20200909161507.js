@@ -81,51 +81,33 @@ console.log(Ppe1.getBirth());
 
 // -------------------------------------
 
-// DOM
+// ----- DOM
 // 获取ID
 // const form = document.getElementById('myform');
 // 查询选择器，可以选择一切，但只会选择第一个，class id 标签 都可以选择
 // console.log(document.querySelector('h1'));
 // 会选择全部，并不是选择第一个
 // console.log(document.querySelectorAll('.item'));
-// 找类
 // console.log(document.getElementsByClassName('item'));
-// 找标签
-// console.log(document.getElementsByTagName('li'));
-// 找名
 // console.log(document.getElementsByName('li'));
-
-// 遍历全部
 // const items = document.querySelectorAll('.item');
 // items.forEach((item) => console.log(item));
-
-// -------------------------------------
-
-// 获取ul
 const ul = document.querySelector('.items');
-// 移除全部UL
+
 // ul.remove();
-// 移除最后一项
 // ul.lastElementChild.remove();
-// 变更第一个元素的textContent属性为Hello
 ul.firstElementChild.textContent = 'Hello';
-// 变更第二项显示文本为Brad
 ul.children[1].innerText = 'Brad';
-// 变更最后一项的HTML文本
 ul.lastElementChild.innerHTML = '<h4>Hello</h4>'
+
 const btn = document.querySelector('.btn');
 // btn.style.background = 'red';
 
-// -------------------------------------
-
 // click点击 moseover鼠标放着-上面 mouseout放在上面-移出后
-// addEventListener创建事件监听
 /*
 btn.addEventListener('click', (e) => {
-    // 使用该方法阻止默认，不然会闪现下就没了
     e.preventDefault();
     console.log('click');
-    // target属性是保存按钮信息
     // console.log(e.target.className);
     document.querySelector('#mainContent').style.background = '#ccc';
     // 调用css里面的bg-dark样式
@@ -133,9 +115,6 @@ btn.addEventListener('click', (e) => {
     
 });
 */
-
-// -------------------------------------
-
 // 获取数据
 const myFormm = document.querySelector('#myform');
 const namee = document.querySelector('#name');

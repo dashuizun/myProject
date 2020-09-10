@@ -122,10 +122,8 @@ const btn = document.querySelector('.btn');
 // addEventListener创建事件监听
 /*
 btn.addEventListener('click', (e) => {
-    // 使用该方法阻止默认，不然会闪现下就没了
     e.preventDefault();
     console.log('click');
-    // target属性是保存按钮信息
     // console.log(e.target.className);
     document.querySelector('#mainContent').style.background = '#ccc';
     // 调用css里面的bg-dark样式
@@ -133,9 +131,6 @@ btn.addEventListener('click', (e) => {
     
 });
 */
-
-// -------------------------------------
-
 // 获取数据
 const myFormm = document.querySelector('#myform');
 const namee = document.querySelector('#name');

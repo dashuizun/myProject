@@ -99,8 +99,6 @@ console.log(Ppe1.getBirth());
 // const items = document.querySelectorAll('.item');
 // items.forEach((item) => console.log(item));
 
-// -------------------------------------
-
 // 获取ul
 const ul = document.querySelector('.items');
 // 移除全部UL
@@ -113,19 +111,15 @@ ul.firstElementChild.textContent = 'Hello';
 ul.children[1].innerText = 'Brad';
 // 变更最后一项的HTML文本
 ul.lastElementChild.innerHTML = '<h4>Hello</h4>'
+
 const btn = document.querySelector('.btn');
 // btn.style.background = 'red';
 
-// -------------------------------------
-
 // click点击 moseover鼠标放着-上面 mouseout放在上面-移出后
-// addEventListener创建事件监听
 /*
 btn.addEventListener('click', (e) => {
-    // 使用该方法阻止默认，不然会闪现下就没了
     e.preventDefault();
     console.log('click');
-    // target属性是保存按钮信息
     // console.log(e.target.className);
     document.querySelector('#mainContent').style.background = '#ccc';
     // 调用css里面的bg-dark样式
@@ -133,9 +127,6 @@ btn.addEventListener('click', (e) => {
     
 });
 */
-
-// -------------------------------------
-
 // 获取数据
 const myFormm = document.querySelector('#myform');
 const namee = document.querySelector('#name');
