@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src = "js/vue.js"></script>
+		<script src = "js/getDate.vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button v-on:click="cs">-----</button>
+		</div>
+		
+	<script>
+		let _this;
+		new Vue({
+			el: '#app',
+			data: {
+				date: new Date()
+			},
+			methods: {
+				cs: function(){
+					console.log('cscs')
+				}	
+			},
+		})
+	</script>
+
+
+		
+	</body>
+</html>

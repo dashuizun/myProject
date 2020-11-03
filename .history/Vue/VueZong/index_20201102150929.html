@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="js/vue.js"></script>
+	<script src="js/getDate.vue"></script>
+	<style>
+		.active {
+			color: red;
+		}
+	</style>
+	<link rel="stylesheet" href="css/table.css">
+</head>
+
+<body>
+	<div id="app">
+		<button @click="cs">-----</button>
+		<h2 :class="{active: true}">{{message}}</h2>
+		<a :href="baidu">百度</a>
+		<!-- 这里要注意对象语法和数组语法的 花括号 和 数组括号 的使用 -->
+		<!--  -->
+		<h2 :style="{fontSize: finalSize + 'px', color: finalColor}">我是对象语法的30大小的红色</h2>
+		<h2 :style="[baseColor, baseSize]">我是数组语法的30大小的红色</h2>
+		<h2>{{fullname}}</h2>
+
+		<button @click="backEvent(123,$fullname)">事件返回</button>
+		<!-- 可以传递方法，和属性 -->
+		<button @click="backEvent(fullname)">值专递</button>
+
+		<!-- !!!
+	  1、JS函数被调用时加括号：
+　		加括号表示执行的是函数里面的代码，即花括号的部分，如有return m ，则返回m
+		2、JS函数被调用时不加括号：
+　　	不加括号表示执行的是整个函数体，返回整个函数体
+		!!! -->
+		<!-- 不加stop的时候那么他会显示divStop1和divStop2, 加了就只会显示divStop2 -->
+		<div @click="divStop1">
+			divStop1divStop1
+			<div @click.stop="divStop"><button>divStop2</button></div>
+		</div>
+
+		<span v-if="isUser">
+			<label>账号登录</label>
+			<input type="text" id="username" placeholder="用户账号" key="2">
+		</span>
+		<span v-else>
+			<label>邮箱登录</label>
+			<input type="text" id="email" placeholder="用户邮箱" key="1">
+		</span>
+		<button @click="isUser = !isUser">切换登录类型</button>
+
+		<table>
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>书籍名称</th>
+					<th>出版日期</th>
+					<th>价格</th>
+					<th>购买数量</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(item,index) in book">
+					<td>{{item.id}}</td>
+					<td>{{item.name}}</td>
+					<td>{{item.time}}</td>
+					<td>{{item.price}}</td>
+					
+					<td>{{item.count}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+	</div>
+	<script>
+		let _this;
+		new Vue({
+			el: '#app',
+			data: {
+				message: '你好',
+				baidu: 'https://www.baidu.com/',
+				isActive: true,
+				isFontSize: true,
+				isColor: true,
+				finalColor: 'red',
+				finalSize: 30,
+				baseColor: {
+					color: 'red'
+				},
+				baseSize: {
+					fontSize: '30px'
+				},
+				firstName: '小',
+				lastName: '吉',
+				isUser: true,
+				book: [{
+						id: 1,
+						name: "算法导论",
+						time: "2006-9",
+						price: 85,
+						count: 1
+					},
+					{
+						id: 2,
+						name: "unix编程艺术",
+						time: "2006-2",
+						price: 59,
+						count: 1
+					},
+					{
+						id: 3,
+						name: "编程技巧",
+						time: "2008-10",
+						price: 39,
+						count: 1
+					},
+				],
+			},
+			computed: {
+				fullname: function () {
+					return this.firstName + ',' + this.lastName
+				}
+			},
+			methods: {
+				cs: function () {
+					console.log('cscs')
+				},
+
+				backEvent(abc, event) {
+					console.log("事件返回", abc, event);
+				},
+				divStop1() {
+					console.log('divStop1');
+				},
+				divStop2() {
+					console.log('divStop2');
+				},
+				changeEmail() {
+					this.changeEmail = false;
+				},
+				addCount(index) {
+					this.book[index].count += 1
+				},
+				reducCount(index) {
+					this.book[index].count -= 1
+				},
+				removeBook(index) {
+					this.book.splice(index, 1)
+				},
+				totalBook() {
+					let totalPrice = 0;
+					for (let i = 1; i < this.book.length; i++) {
+						totalBook += this.book[i].price * this.book[i].count
+					}
+					return totalPrice.toString()
+				}
+			},
+		})
+	</script>
+
+
+
+</body>
+
+</html>

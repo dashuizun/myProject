@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src = "js/vue.js"></script>
+		<script src = "js/getDate.vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="cs">-----</button>
+			<h2 v-pre>{{message}}</h2>
+		</div>
+	<script>
+		let _this;
+		new Vue({
+			el: '#app',
+			data: {
+				message: '你好'
+			},
+			methods: {
+				cs: function(){
+					console.log('cscs')
+				}
+			},
+		})
+	</script>
+
+
+		
+	</body>
+</html>

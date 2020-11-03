@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src = "js/vue.js"></script>
+		<script src = "js/getDate.vue"></script>
+		<style>
+			.active{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="cs">-----</button>
+			<h2 :class="{active: true}">{{message}}</h2>
+			<a :href="baidu">百度</a>
+			<h2 :style="{fontSize: finalSize + 'px', color: finalColor}">我是对象语法的30大小的红色</h2>
+			<h2 :style="[baseColor, baseSize]">我是数组语法的30大小的红色</h2>
+			<h2>{{fullname}}</h2>
+			<button @click="backEvent(123,$fullname)">事件返回</button>
+			<button @click="backEvent(fullname)">值专递</button>
+
+			<div @click="divStop1">
+				divStop1divStop1
+				<div @click="divStop2"><button>divStop2</button></div>
+			</div>
+
+
+
+		</div>
+	<script>
+		let _this;
+		new Vue({
+			el: '#app',
+			data: {
+				message: '你好',
+				baidu: 'https://www.baidu.com/',
+				isActive: true,
+				isFontSize: true,
+				isColor: true,
+				finalColor: 'red',
+				finalSize: 30,
+				baseColor: {color: 'red'},
+				baseSize: {fontSize: '30px'},
+				firstName: '小',
+				lastName: '吉'
+			},
+			computed: {
+				fullname: function(){
+					return this.firstName + ',' + this.lastName
+				}
+			},
+			methods: {
+				cs: function(){
+					console.log('cscs')
+				},
+				backEvent(abc,event){
+					console.log("事件返回", abc, event);
+				},
+				divStop1(){
+					console.log('divStop1');
+				},
+				divStop2(){
+					console.log('divStop2');
+				},
+			},
+		})
+	</script>
+
+
+		
+	</body>
+</html>

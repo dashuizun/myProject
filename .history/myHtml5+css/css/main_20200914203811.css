@@ -1,0 +1,65 @@
+ul{
+    background-color: dimgray;
+    width: auto;
+    height: 60px;
+    /* 取消间隔 */
+    margin: 0;
+}
+
+body{
+    background: none;
+}
+
+ul li{
+    /* 横向 */
+    display: inline;
+    color: black;
+    /* 字体代销 */
+    font-size: 30px;
+    /* 内边距 */
+    padding: 0px;
+    /* 外边距 */
+    margin: 30px 30px 30px 30px;
+    /* 文字对齐 */
+    text-align: center;
+    /* 行高等于高就居中对齐 */
+    line-height: 60px;
+}
+
+ul li:hover{
+    /* 鼠标在上面变色 */
+    color: crimson;
+}
+
+a{
+    /* 消除超链接下划线 */
+    text-decoration: none;
+}
+
+.page{
+    width: 1000px;
+    /*居中*/
+    margin: 0px auto;
+}
+
+/* 个人信息浮动 */
+#mainContent{
+    font-size: 20px;
+    background-color:Yellow;    
+    height:auto;
+    width:70%;
+    float:left;
+}
+
+#sidebar{
+    font-size: 20px;
+    background-color:Blue;   
+    height:auto;
+    width:20%;
+    float: left;
+    padding: 1% 5% 1% 5%;
+}
+
+.bg-dark{
+    background: #333;
+}

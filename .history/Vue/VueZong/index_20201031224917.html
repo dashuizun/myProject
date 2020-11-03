@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src = "js/vue.js"></script>
+		<script src = "js/getDate.vue"></script>
+		<style>
+			.active{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="cs">-----</button>
+			<h2 :class="{active: true}">{{message}}</h2>
+			<a :href="baidu">百度</a>
+			<h2 :style="{color: finalColor,fontSize: 100 + 'px'}">我是20大小的红色</h2>
+		</div>
+	<script>
+		let _this;
+		new Vue({
+			el: '#app',
+			data: {
+				message: '你好',
+				baidu: 'https://www.baidu.com/',
+				isActive: true,
+				isFontSize: true,
+				isColor: true,
+				finalColor: 'red',
+				finalSize: 20
+			},
+			methods: {
+				cs: function(){
+					console.log('cscs')
+				}
+			},
+		})
+	</script>
+
+
+		
+	</body>
+</html>
