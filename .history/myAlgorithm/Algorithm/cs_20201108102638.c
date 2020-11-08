@@ -20,7 +20,7 @@ void showDrr(int *array, int len)
 {
     for (int i = 0; i < len; i++)
     {
-        printf("%d", array[i]);
+        printf("我%d", array[i]);
     }
 }
 //选择
