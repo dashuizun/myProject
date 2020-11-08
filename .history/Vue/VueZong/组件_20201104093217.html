@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件</title>
+  <script src="js/vue.js"></script>
+  <script src="js/getDate.vue"></script>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+  <link rel="stylesheet" href="css/table.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- 组件 -->
+    <mcpn1></mcpn1>
+    <mcpn2></mcpn2>
+
+  </div>
+
+  <template id='mcpn2'>
+    <div>
+      <button @click="reduceCount(item.id-1)" :disabled="item.count <= 1">-</button>
+      {{item.count}}
+      <button @click="addCount(item.id-1)">+</button>
+    </div>
+  </template>
+  <script>
+    // 创建组件
+    const cpnC1 = Vue.extend({
+      template: `<div>
+    		  <h2>我是标题</h2>
+    		</div>`
+    })
+
+    // 注册全局组件
+    Vue.component('mcpn1', cpnC1)
+
+    Vue.component('mcpn2', {
+      template: '#mcpn2'
+    })
+
+    new Vue({
+      el: '#app',
+      data: {
+        message: '你好',
+        baidu: 'https://www.baidu.com/',
+        isActive: true,
+        isFontSize: true,
+        isColor: true,
+        finalColor: 'red',
+        finalSize: 30,
+        baseColor: {
+          color: 'red'
+        },
+        baseSize: {
+          fontSize: '30px'
+        },
+        firstName: '小',
+        lastName: '吉',
+        isUser: true,
+        book: [{
+            id: 1,
+            name: "算法导论",
+            time: "2006-9",
+            price: 85,
+            count: 1
+          },
+          {
+            id: 2,
+            name: "unix编程艺术",
+            time: "2006-2",
+            price: 59,
+            count: 1
+          },
+          {
+            id: 3,
+            name: "编程技巧",
+            time: "2008-10",
+            price: 39,
+            count: 1
+          },
+        ],
+        isAgree: false,
+      },
+
+      // 注册组件
+      components: {
+        cpn: cpnC1
+      },
+
+      // 计算属性
+      computed: {
+        fullname() {
+          return this.firstName + ',' + this.lastName
+        },
+        // 计算总价
+        totalPrice() {
+          let totalB = 0;
+          /*
+          for (var i = 0; i < this.book.length; i++) {
+          	totalB += this.book[i].price * this.book[i].count;
+          }
+          */
+          for (let item of this.book) {
+            totalB += item.price * item.count
+          }
+          return totalB
+        }
+      },
+
+      methods: {
+        cs: function () {
+          console.log('cscs')
+        },
+
+        backEvent(abc, event) {
+          console.log("事件返回", abc, event);
+        },
+
+        divStop1() {
+          console.log('divStop1');
+        },
+
+        divStop2() {
+          console.log('divStop2');
+        },
+
+        changeEmail() {
+          this.changeEmail = false;
+        },
+        // 数量增加
+        addCount(index) {
+          this.book[index].count++
+        },
+        // 数量减少
+        reduceCount(index) {
+          this.book[index].count--
+        },
+        // 移除购物车物品
+        removeBook(index) {
+          this.book.splice(index, 1)
+        },
+
+      },
+
+      // 过滤器
+      filters: {
+        showPrice(price) {
+          return '$' + price.toFixed(2)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

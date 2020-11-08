@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="js/vue.js"></script>
+  <div id="app">
+    <!-- 动态 attribute 名 (2.6.0+) -->
+    <div :[attributeKey]="active:true">123</div>
+
+    <!-- style 绑定 -->
+    <div :style="{ fontSize: size + 'px' }">我的大小为30</div>
+
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        attributeKey: 'Class',
+        size: 30,
+      }
+    })
+  </script>
+
+</body>
+
+</html>

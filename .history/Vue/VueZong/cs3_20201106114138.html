@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="js/vue.js"></script>
+  <div id="app">
+    <!-- 动态 attribute 名 (2.6.0+) -->
+    <button v-bind:[key]="value"></button>
+
+    <!-- style 绑定 -->
+    <div :style="{ fontSize: size + 'px' }"></div>
+    <div :style="[styleObjectA, styleObjectB]"></div>
+
+    <!-- 绑定一个全是 attribute 的对象 -->
+    <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
+
+    <!-- 通过 prop 修饰符绑定 DOM attribute -->
+    <div v-bind:text-content.prop="text"></div>
+
+    <!-- prop 绑定。“prop”必须在 my-component 中声明。-->
+    <my-component :prop="someThing"></my-component>
+
+    <!-- 通过 $props 将父组件的 props 一起传给子组件 -->
+    <child-component v-bind="$props"></child-component>
+
+    <!-- XLink -->
+    <svg><a :xlink:special="foo"></a></svg>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello',
+        yesActive: true,
+        noActive: false
+      }
+    })
+  </script>
+
+</body>
+
+</html>

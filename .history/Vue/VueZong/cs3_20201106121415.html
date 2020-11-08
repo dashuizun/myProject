@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="js/vue.js"></script>
+  <div id="app">
+    <div :style="{ fontSize: size + 'px' }">我的大小为30</div>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        size: 30
+      },
+      methods: {
+        getClasses: function () {
+          return [this.active, this.line]
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

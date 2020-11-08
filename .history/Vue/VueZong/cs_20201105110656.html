@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件</title>
+  <script src="js/vue.js"></script>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+  <link rel="stylesheet" href="css/table.css">
+</head>
+
+<body>
+
+  <div id="app">
+    <cpn :number1="num1" :number2="num2"></cpn>
+  </div>
+
+  <template id="cpnTem">
+    <div>
+      <h2>{{number1}}</h2>
+      <h2>{{number2}}</h2>
+      <input type="text" @click="btninput">
+    </div>
+  </template>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        num1: 1,
+        num2: 0
+      },
+      components: {
+        cpn: {
+          template: '#cpnTem',
+          props: {
+            number1: Number,
+            number2: Number
+          }
+          methods: {
+            btninput
+          },
+        }
+      }
+
+    })
+  </script>
+</body>
+
+</html>

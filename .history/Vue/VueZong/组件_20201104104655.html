@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件</title>
+  <script src="js/vue.js"></script>
+  <script src="js/getDate.vue"></script>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+  <link rel="stylesheet" href="css/table.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- 组件1简单实用 -->
+    <mcpn1></mcpn1>
+
+    <!-- 组件2 -->
+    <mcpn2></mcpn2>
+
+    <mcpn3></mcpn3>
+
+    <mcpn42></mcpn42>
+
+    <mcpn5></mcpn5>
+
+  </div>
+
+  <template id="mcpn5">
+    <div>
+      <h2>{{title}}</h2>
+    </div>
+  </template>
+
+  <template id='mcpn4'>
+    <div>
+      <button @click="reduceCount(item.id-1)" :disabled="item.count <= 1">-</button>
+
+      <button @click="addCount(item.id-1)">+</button>
+    </div>
+  </template>
+  <script>
+    // 全局组件1流程，创建组件，注册组件
+    // 创建组件
+    const mcpN1 = Vue.extend({
+      template: `<div>
+    		  <h2>我是全局组件1</h2>
+    		</div>`
+    })
+    // 注册全局组件
+    Vue.component('mcpn1', mcpN1)
+
+    // 全局组件2流程，创建注册统一
+    Vue.component('mcpn2', {
+      template: `<div>
+    		  <h2>我是全局组件2</h2>
+    		</div>`
+    })
+
+    //全局组件4，父与子
+    const mcpn4A = Vue.extend({
+      template: `<div>
+      <h2>我是局部组件4A</h2>
+    </div>`
+    })
+    const mcpn4B = Vue.extend({
+      template: `<div>
+      <h2>我是局部组件4B</h2>
+      <mcpn42></mcpn42>
+    </div>`,
+      components: {
+        mcpn42: mcpn4A
+      }
+    })
+
+    // 组件5，data的使用
+    Vue.component('mcpn2', {
+      template: '#mcpn5'
+    })
+
+
+    new Vue({
+      el: '#app',
+      data: {
+        title: 'abc'
+      },
+
+      // 注册组件的第二种办法
+      components: {
+        cpn: mcpN1,
+        mcpn42: mcpn4B,
+        // 局部组件组件3
+        mcpn3: {
+          template: `
+          <div>
+            <h2>我是局部组件3</h2>
+          </div>`
+        },
+        'mcpn5': {
+          template: '#mcpn5'
+        }
+      },
+
+      methods: {
+        // 数量增加
+        addCount(index) {
+          this.book[index].count++
+        },
+        // 数量减少
+        reduceCount(index) {
+          this.book[index].count--
+        },
+      },
+
+    })
+  </script>
+</body>
+
+</html>

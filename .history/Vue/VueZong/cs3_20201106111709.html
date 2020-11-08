@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="js/vue.js"></script>
+  <div id="app">
+    <img v-bind:src="imgURL">
+    <a v-bind:href="aHref">CSDN</a>
+    <!--语法糖/缩写的写法-->
+    <img :src="imgURL">
+    <a :href="aHref">CSDN</a>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        imgURL: 'img/1.gif',
+        aHref: 'https://www.csdn.net/'
+      }
+    })
+  </script>
+
+</body>
+
+</html>

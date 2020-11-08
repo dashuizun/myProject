@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="js/vue.js"></script>
+  <div id="app">
+    <select name="textSel" v-model="Langue" multiple>
+      <option value="java">java</option>
+      <option value="python">python</option>
+      <option value="html5">html5</option>
+    </select>
+    <h2>语言: {{Langue}}</h2>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        Lang: 'python',
+        Langue: []
+      }
+    })
+  </script>
+
+</body>
+
+</html>

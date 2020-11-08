@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件2</title>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+
+
+  <div id="app">
+    <cpn></cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <button v-for="item in fenlei">{{item}}</button>
+    </div>
+  </template>
+
+  <script>
+    // JD热门分类
+    const cpn = {
+        template: '#cpn',
+        data() {
+          return {
+            fenlei: [{
+                id: 'aaa',
+                name: '热门分类1'
+              },
+              {
+                id: 'bbb',
+                name: '热门分类2'
+              },
+              {
+                id: 'ccc',
+                name: '热门分类3'
+              },
+            ]
+          }
+        }
+      },
+
+      new Vue({
+        el: '#app',
+        data: {
+
+        },
+        components: {
+          cpn
+        }
+
+
+      })
+  </script>
+</body>
+
+</html>

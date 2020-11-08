@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="js/vue.js"></script>
+  <div id="app">
+    <h2>获取value与key的遍历，value是值，key是属性</h2>
+    <ul>
+      <li v-for="item in message">{{item}}-{{index}}</li>
+    </ul>
+
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: {
+          name: 'Hello',
+          age: 22,
+          height: 175
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue学习——插值的操作</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html">
+    <h1><a id="Vue_0"></a>Vue学习——插值的操作</h1>
+    <p>
+      <font color="#999AAA">Day1</font>
+    </p>
+    <hr color="#000000" size="1&quot;">
+    <font color="#999AAA"> </font>
+    <p></p>
+    <div class="toc">
+      <h3>文章目录</h3>
+      <ul>
+        <li><a href="#Vue_0">Vue学习——插值的操作</a></li>
+        <li><a href="#_14">前言</a></li>
+        <li><a href="#Vue_24">一、Vue的实例</a></li>
+        <li><a href="#_47">二、使用步骤</a></li>
+        <ul>
+          <li><a href="#1_48">1.引入库</a></li>
+          <li><a href="#2_66">2.读入数据</a></li>
+        </ul>
+        <li><a href="#_84">总结</a></li>
+      </ul>
+    </div>
+    <p></p>
+    <hr color="#000000" size="1&quot;">
+    <h1><a id="_14"></a>前言</h1>
+    <font color="#999AAA"> 此文章根据官方文档及些网络资料编写，仅供个人使用。 </font>
+    <hr color="#000000" size="1&quot;">
+    <p>
+      <font color="#999AAA">提示：以下是本篇文章正文内容，下面案例可供参考</font>
+    </p>
+    <h1><a id="Vue_24"></a>一、Vue的实例</h1>
+    <font color="#999AAA"> 在mustache语法中， </font>
+    <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>{{message}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/vue/dist/vue.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"> <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span> el<span class="token punctuation">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span> data<span class="token punctuation">:</span> <span class="token punctuation">{</span> message<span class="token punctuation">:</span> <span class="token string">'Hello World!'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span> </code></pre>
+    <h1><a id="_47"></a>二、使用步骤</h1>
+    <h2><a id="1_48"></a>1.引入库</h2>
+    <p>
+      <font color="#999AAA">代码如下（示例）：</font>
+    </p>
+    <pre><code class="prism language-c">import numpy as np import pandas as pd import matplotlib<span class="token punctuation">.</span>pyplot as plt import seaborn as sns import warnings warnings<span class="token punctuation">.</span><span class="token function">filterwarnings</span><span class="token punctuation">(</span><span class="token string">'ignore'</span><span class="token punctuation">)</span> import  ssl ssl<span class="token punctuation">.</span>_create_default_https_context <span class="token operator">=</span> ssl<span class="token punctuation">.</span>_create_unverified_context </code></pre>
+    <h2><a id="2_66"></a>2.读入数据</h2>
+    <p>
+      <font color="#999AAA">代码如下（示例）：</font>
+    </p>
+    <pre><code class="prism language-c">data <span class="token operator">=</span> pd<span class="token punctuation">.</span><span class="token function">read_csv</span><span class="token punctuation">(</span> <span class="token string">'https://labfile.oss.aliyuncs.com/courses/1283/adult.data.csv'</span><span class="token punctuation">)</span> <span class="token function">print</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span><span class="token function">head</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> </code></pre>
+    <p>
+      <font color="#999AAA">该处使用的url网络请求的数据。</font>
+    </p>
+    <hr color="#000000" size="1&quot;">
+    <h1><a id="_84"></a>总结</h1>
+    <p>
+      <font color="#999AAA">提示：这里对文章进行总结：<br> 例如：以上就是今天要讲的内容，本文仅仅简单介绍了pandas的使用，而pandas提供了大量能使我们快速便捷地处理数据的函数和方法。</font>
+    </p>
+  </div>
+</body>
+
+</html>

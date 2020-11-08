@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件</title>
+  <script src="js/vue.js"></script>
+  <script src="js/getDate.vue"></script>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+  <link rel="stylesheet" href="css/table.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- 组件1简单实用 -->
+    <mcpn1></mcpn1>
+
+    <!-- 组件2 -->
+    <mcpn2></mcpn2>
+
+    <mcpn3></mcpn3>
+
+    <mcpn42></mcpn42>
+
+    <mcpn5></mcpn5>
+
+    <mcpn6></mcpn6>
+    <mcpn6></mcpn6>
+    <mcpn7></mcpn7>
+    <mcpn7></mcpn7>
+  </div>
+
+  <template id="mcpn5TemP1">
+    <div>
+      <h2>{{title}}</h2>
+    </div>
+  </template>
+
+  <template id='mcpn6TemP2'>
+    <div>
+      <button @click="reduceCount">-</button>
+      当前：{{counter}}
+      <button @click="addCount">+</button>
+    </div>
+  </template>
+
+  <template id='mcpn7TemP3'>
+    <div>
+      <button @click="reduceCount">-</button>
+      当前：{{counter}}
+      <button @click="addCount">+</button>
+    </div>
+  </template>
+
+  <script>
+    // 全局组件1流程，创建组件，注册组件
+    // 创建组件
+    const mcpN1 = Vue.extend({
+      template: `<div>
+    		  <h2>我是全局组件1</h2>
+    		</div>`
+    })
+    // 注册全局组件
+    Vue.component('mcpn1', mcpN1)
+
+    // 全局组件2流程，创建注册统一
+    Vue.component('mcpn2', {
+      template: `<div>
+    		  <h2>我是全局组件2</h2>
+    		</div>`
+    })
+
+    //全局组件4，父与子
+    const mcpn4A = Vue.extend({
+      template: `<div>
+      <h2>我是局部组件4A</h2>
+    </div>`
+    })
+    const mcpn4B = Vue.extend({
+      template: `<div>
+      <h2>我是局部组件4B</h2>
+      <mcpn42></mcpn42>
+    </div>`,
+      components: {
+        mcpn42: mcpn4A
+      }
+    })
+
+    // 组件5，data的使用
+    Vue.component('mcpn5', {
+      template: '#mcpn5TemP1',
+      data() {
+        return {
+          title: 'mcpn5TemP1'
+        }
+      }
+    })
+
+    // 组件6计算器1
+    Vue.component('mcpn6', {
+      template: '#mcpn6TemP2',
+      data() {
+        return {
+          counter: 0
+        }
+      },
+      methods: {
+        // 数量增加
+        addCount(index) {
+          this.counter++
+        },
+        // 数量减少
+        reduceCount(index) {
+          this.counter--
+        },
+      },
+    })
+
+    // 组件7计算器2
+    const coo = 0;
+    Vue.component('mcpn7', {
+      template: '#mcpn7TemP3',
+      data() {
+        return {
+          coo
+        }
+      },
+      methods: {
+        // 数量增加
+        addCount(index) {
+          this.counter++
+        },
+        // 数量减少
+        reduceCount(index) {
+          this.counter--
+        },
+      },
+    })
+
+    new Vue({
+      el: '#app',
+      data: {
+        title: 'abc'
+      },
+
+      // 注册组件的第二种办法
+      components: {
+        cpn: mcpN1,
+        mcpn42: mcpn4B,
+        // 局部组件组件3
+        mcpn3: {
+          template: `
+          <div>
+            <h2>我是局部组件3</h2>
+          </div>`
+        },
+
+      },
+
+
+
+    })
+  </script>
+</body>
+
+</html>

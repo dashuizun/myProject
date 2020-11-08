@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件</title>
+  <script src="js/vue.js"></script>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+  <link rel="stylesheet" href="css/table.css">
+</head>
+
+<body>
+  <div id="app">
+    <cpn @itemclick="vueclick"></cpn>
+  </div>
+
+  <template id="cpn-Tem">
+    <div>
+      <button @click="btnclick(message1)">{{message1}}</button>
+    </div>
+  </template>
+
+
+  <script>
+    const cpn = {
+      template: '#cpn-Tem',
+      data() {
+        return {
+          message1: 'me1'
+        }
+      },
+      methods: {
+        btnclick(item) {
+          this.$emit('itemclick', item)
+        }
+      },
+    }
+    new Vue({
+      el: '#app',
+      data: {
+
+      },
+      components: {
+        cpn
+      },
+      methods: {
+        vueclick(item) {
+          console.log('vueclick', item)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

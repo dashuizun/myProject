@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+  <script>
+    // JD热门分类
+    const cpnjd = {
+        template: '#jdremen',
+        data() {
+          return {
+            fenlei: [{
+                id: 'aaa',
+                name: '热门分类1'
+              },
+              {
+                id: 'bbb',
+                name: '热门分类2'
+              },
+              {
+                id: 'ccc',
+                name: '热门分类3'
+              },
+            ]
+          }
+        }
+      },
+
+      new Vue({
+        el: '#app',
+      })
+  </script>
+</body>
+
+</html>

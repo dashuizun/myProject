@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2>一、图像绑定</h2>
+    <img v-bind:src="imgURL" alt="">
+    <h2>一、连接绑定</h2>
+    <a v-bind:href="aHref">百度一下</a>
+    <h2>一、连接绑定</h2>
+    <h2>一、连接绑定</h2>
+    <h2>一、连接绑定</h2>
+    <h2>一、连接绑定</h2>
+    <h2>一、连接绑定</h2>
+    <h2>一、连接绑定</h2>
+    <h2>一、连接绑定</h2>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        imgURL: 'img/1.gif',
+        aHref: 'https://www.baidu.com/'
+      },
+      methods: {
+        addCount() {
+          this.counter++
+        },
+        reduceCount() {
+          this.counter--
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
